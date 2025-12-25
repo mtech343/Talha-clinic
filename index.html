@@ -5,6 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dr. Talha Dental Clinic – Jhelum | Best Dentist in Jhelum</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Dr. Talha Dental Clinic in Jhelum offers professional dental care, including Root Canal, Implants, and Braces. Visit us at Old G T Rd for a painless experience.">
+    <meta name="keywords" content="Dentist in Jhelum, Dental Clinic Jhelum, Dr. Talha Dental Clinic, Root Canal Jhelum, Teeth Whitening Jhelum">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dr. Talha Dental Clinic – Jhelum">
+    <meta property="og:description" content="Professional dental healthcare services in Jhelum. Expert care for your smile.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -44,19 +55,25 @@
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.3);
       }
+      .clip-path-hero {
+        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
     "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
     "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
-</head>
+  </head>
   <body class="bg-gray-50 text-gray-900">
     <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>
