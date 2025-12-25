@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -19,22 +20,24 @@ const ScrollToTop = () => {
 };
 
 const App: React.FC = () => {
+  const [isAiOpen, setIsAiOpen] = useState(false);
+
   return (
     <Router>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
-        <Navbar />
+        <Navbar onOpenAi={() => setIsAiOpen(true)} />
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home onOpenAi={() => setIsAiOpen(true)} />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
-        <Footer />
+        <Footer onOpenAi={() => setIsAiOpen(true)} />
         <WhatsAppButton />
-        <AiAssistant />
+        <AiAssistant isOpen={isAiOpen} onClose={() => setIsAiOpen(false)} />
       </div>
     </Router>
   );

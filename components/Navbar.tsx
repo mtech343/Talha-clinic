@@ -4,7 +4,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { CLINIC_NAME } from '../constants';
 import { openWhatsApp } from '../services/whatsapp';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onOpenAi: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onOpenAi }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -29,7 +33,7 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -43,6 +47,18 @@ const Navbar: React.FC = () => {
                 {link.name}
               </Link>
             ))}
+            
+            <button
+              onClick={onOpenAi}
+              className="flex items-center space-x-2 text-blue-600 font-bold text-sm bg-blue-50 px-4 py-2 rounded-xl hover:bg-blue-100 transition-all border border-blue-200"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              <span>AI Assistant</span>
+            </button>
+
             <button
               onClick={() => openWhatsApp()}
               className="bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition-all shadow-md active:scale-95"
@@ -51,7 +67,8 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-2">
+            <button onClick={onOpenAi} className="p-2 text-blue-600 bg-blue-50 rounded-lg font-bold text-xs uppercase tracking-wider">AI Help</button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none"
@@ -86,7 +103,13 @@ const Navbar: React.FC = () => {
                 {link.name}
               </Link>
             ))}
-            <div className="p-3">
+            <div className="p-3 space-y-3">
+              <button
+                onClick={() => { setIsOpen(false); onOpenAi(); }}
+                className="w-full bg-blue-50 text-blue-600 px-4 py-3 rounded-md font-bold text-center"
+              >
+                Chat with AI Assistant
+              </button>
               <button
                 onClick={() => {
                   setIsOpen(false);

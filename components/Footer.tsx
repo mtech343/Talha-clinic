@@ -3,7 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CLINIC_NAME, ADDRESS, WHATSAPP_NUMBER } from '../constants';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenAi: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onOpenAi }) => {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -13,7 +17,7 @@ const Footer: React.FC = () => {
               <span className="mr-2">🦷</span> {CLINIC_NAME}
             </h3>
             <p className="mb-6 text-gray-400 max-w-md">
-              Providing professional dental healthcare services in Jhelum. Our mission is to ensure every patient leaves with a confident and healthy smile using the latest dental technology.
+              Providing professional dental healthcare services in Jada, Jhelum. Our mission is to ensure every patient leaves with a confident smile using the latest technology.
             </p>
             <div className="flex space-x-4">
               <a 
@@ -47,7 +51,7 @@ const Footer: React.FC = () => {
               <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
               <li><Link to="/about" className="hover:text-blue-400 transition-colors">About Us</Link></li>
               <li><Link to="/services" className="hover:text-blue-400 transition-colors">Our Services</Link></li>
-              <li><Link to="/contact" className="hover:text-blue-400 transition-colors">Contact</Link></li>
+              <li><button onClick={onOpenAi} className="hover:text-blue-400 transition-colors text-left">AI Checkup</button></li>
             </ul>
           </div>
           
